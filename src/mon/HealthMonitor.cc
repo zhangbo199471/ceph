@@ -235,7 +235,7 @@ bool HealthMonitor::preprocess_command(MonOpRequestRef op)
   bufferlist rdata;
 
   cmdmap_t cmdmap;
-  if (!cmdmap_from_json(m->cmd, &cmdmap, ss)) {
+  if (!cmdmap_from_json(m->cmd, &cmdmap, ss)) {//解析参数
     string rs = ss.str();
     mon.reply_command(op, -EINVAL, rs, rdata, get_last_committed());
     return true;
